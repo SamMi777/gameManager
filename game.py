@@ -1,5 +1,8 @@
 import random
 from Player import playerStats
+import fileinput
+
+file = 'names.txt'
 
 def genFirstLvl(name):
     p1 = random.randint(40,100)
@@ -11,13 +14,38 @@ def genFirstLvl(name):
     
     return player
 
+def createPlayerNames():
+    nameLST = []
+    for line in fileinput.input(files=file):        
+        line = line.strip()
+        nameLST.append(line)
+        
+    return nameLST
+
+def givePlayerNames(nameList):
+    name = random.choice(nameList)
+    nameList.remove(name)
+    
+    return name, nameList
+
+def genFAFirstLevel(name):
+    p1 = random.randint(40,80)
+    p2 = random.randint(40,80)
+    
+    total = (p1+p2)/2
+    
+    player = playerStats(p1, False, p2, total, name)
+    
+    return player
+    
+
 def setPlayer(shooting, brains):
     total = (shooting + brains) /2
     return total 
     
 
 def printPlayerStats(shooting, brains, total, name):
-    print(name,"","\nshooting:",shooting,"\nbrains:",brains,"\noverall:",total,"\n")
+    print(name,"\noverall:",total,"","\naim:",shooting,"\ngame sense:",brains,"\n")
     
 def yourTeamOVR(OVR1, OVR2, OVR3, OVR4, OVR5):
     teamOVR = (OVR1+OVR2+OVR3+OVR4+OVR5) / 5
