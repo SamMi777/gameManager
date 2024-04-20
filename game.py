@@ -62,20 +62,20 @@ def upgradePlayers(value1, value2, value3, value4, value5, upgradeType):
         value5 = value5 + random.randint(0,3)
         
     elif upgradeType == 3:
-        value1 = value1 + random.randint(0,1.5)
-        value2 = value2 + random.randint(0,1.5)
-        value3 = value3 + random.randint(0,1.5)
-        value4 = value4 + random.randint(0,1.5)
-        value5 = value5 + random.randint(0,1.5)
+        value1 = value1 + random.randint(0,1)
+        value2 = value2 + random.randint(0,1)
+        value3 = value3 + random.randint(0,1)
+        value4 = value4 + random.randint(0,1)
+        value5 = value5 + random.randint(0,1)
         
     else:
         coinFlip = random.randint(0,1)
         if coinFlip == 0:
-            value1 = value1 + random.randint(0,5)
-            value2 = value2 + random.randint(0,5)
-            value3 = value3 + random.randint(0,5)
-            value4 = value4 + random.randint(0,5)
-            value5 = value5 + random.randint(0,5)            
-        
-        
+            value1 = value1 + random.randint(1,3)
+            value2 = value2 + random.randint(1,3)
+            value3 = value3 + random.randint(1,3)
+            value4 = value4 + random.randint(1,3)
+            value5 = value5 + random.randint(1,3)  
+       
+            
     return value1, value2, value3, value4, value5
