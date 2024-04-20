@@ -61,12 +61,14 @@ def main():
                         loopval = False
                         teamOverall = game.yourTeamOVR(player1.total, player2.total, player3.total, player4.total, player5.total)  
                     elif upVal == 3:
-                        #add
+                        player1.brains, player2.brains, player3.brains, player4.brains, player5.brains = game.upgradePlayers(player1.brains, player2.brains, player3.brains, player4.brains, player5.brains, 3)
+                        player1.shooting, player2.shooting, player3.shooting, player4.shooting, player5.shooting = game.upgradePlayers(player1.shooting, player2.shooting, player3.shooting, player4.shooting, player5.shooting, 3)
                         print("upgrade both")
                         loopval = False
                         teamOverall = game.yourTeamOVR(player1.total, player2.total, player3.total, player4.total, player5.total)  
                     elif upVal == 4:
-                        #add
+                        player1.brains, player2.brains, player3.brains, player4.brains, player5.brains = game.upgradePlayers(player1.brains, player2.brains, player3.brains, player4.brains, player5.brains, 4)
+                        player1.shooting, player2.shooting, player3.shooting, player4.shooting, player5.shooting = game.upgradePlayers(player1.shooting, player2.shooting, player3.shooting, player4.shooting, player5.shooting, 4)
                         print("risk reward")
                         loopval = False
                         teamOverall = game.yourTeamOVR(player1.total, player2.total, player3.total, player4.total, player5.total)  
