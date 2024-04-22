@@ -3,7 +3,8 @@ import os
 import game 
 
 #Sam Minor
-#quickGameSim.py edited 4/20/24
+#quickGameSim.py published 4/20/24
+#last edited 4/22/24
     
 def main():
     #variables to describe weeks left per cycle
@@ -12,6 +13,7 @@ def main():
     weeksLeft = 5
     prestige = 20
     winCount = 0
+    month = 1
     print("Welcome to the Game Manager! Here you act as the manager of an up-and-coming team of players.")
     print("As manager you'll have the ability to sign free agents, train your players, and play a tournament every few weeks to gain prestige.")
     enter = input("Press enter to continue.")
@@ -128,9 +130,9 @@ def main():
             FAChoice = int(input("(1)FA 1\n(2)FA 2\n(3)FA 3\n(4)keep current players\n"))
             
             if FAChoice == 1:                
-                nameList.append(playerName2)
-                nameList.append(playerName3)
                 tempPlayer = playerFA1
+                nameList.append(playerName2)
+                nameList.append(playerName3)               
             elif FAChoice == 2:
                 tempPlayer = playerFA2
                 nameList.append(playerName1)
@@ -174,25 +176,16 @@ def main():
         if(val == 4):
             os.system('cls')
             weeksLeft = 5            
-            enemyOverall = game.enemyTeam()     
-            print("your team:", teamOverall)
-            print("their team:", enemyOverall)
-            prestige, winCount = game.playGame(1, teamOverall, enemyOverall, prestige, winCount)
-            
-            enemyOverall = game.enemyTeam()
-            print("your team:", teamOverall)
-            print("their team:", enemyOverall)   
-            prestige, winCount = game.playGame(2, teamOverall, enemyOverall, prestige, winCount)
-            
-            enemyOverall = game.enemyTeam()
-            print("your team:", teamOverall)
-            print("their team:", enemyOverall)   
-            prestige, winCount = game.playGame(3, teamOverall, enemyOverall, prestige, winCount)
-            
-            winCount = game.gameWin(winCount)    
+            month, prestige = game.playTournament(month,teamOverall,prestige)           
+             
             player1.shooting, player2.shooting, player3.shooting, player4.shooting, player5.shooting = game.playerRegression(player1.shooting, player2.shooting, player3.shooting, player4.shooting, player5.shooting) 
             player1.brains, player2.brains, player3.brains, player4.brains, player5.brains = game.playerRegression(player1.brains, player2.brains, player3.brains, player4.brains, player5.brains)             
-            
+            player1.total = game.setPlayer(player1.shooting, player1.brains)
+            player2.total = game.setPlayer(player2.shooting, player2.brains)
+            player3.total = game.setPlayer(player3.shooting, player3.brains)
+            player4.total = game.setPlayer(player4.shooting, player4.brains)
+            player5.total = game.setPlayer(player5.shooting, player5.brains)
+            teamOverall = game.yourTeamOVR(player1.total, player2.total, player3.total, player4.total, player5.total)
             val = 100           
         
         if(val == 5):
