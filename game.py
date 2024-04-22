@@ -42,6 +42,16 @@ def genFAFirstLevel(name):
 def setPlayer(shooting, brains):
     total = (shooting + brains) /2
     return total 
+
+def playerRegression(player1stat, player2stat, player3stat, player4stat, player5stat):
+    player1stat = player1stat - random.randint(0,5)
+    player2stat = player2stat - random.randint(0,5)
+    player3stat = player3stat - random.randint(0,5)
+    player4stat = player4stat - random.randint(0,5)
+    player5stat = player5stat - random.randint(0,5)
+    
+    return player1stat, player2stat, player3stat, player4stat, player5stat
+    
     
 
 def printPlayerStats(shooting, brains, total, name):

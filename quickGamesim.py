@@ -35,8 +35,7 @@ def main():
     player5 = game.genFirstLvl(playerName)
     
     #assigning team overall by taking the total of your players and printing it
-    teamOverall = game.yourTeamOVR(player1.total, player2.total, player3.total, player4.total, player5.total)    
-    
+    teamOverall = game.yourTeamOVR(player1.total, player2.total, player3.total, player4.total, player5.total)  
     val = int(input("|||||Main Menu|||||\n(1)View Team\n(2)bootcamp\n(3)Sign new player\n(4)play tournament\n(5)quit\n||||||||||||||||||||\n"))
     os.system('cls')
     
@@ -71,25 +70,46 @@ def main():
                         player1.shooting, player2.shooting, player3.shooting, player4.shooting, player5.shooting = game.upgradePlayers(player1.shooting, player2.shooting, player3.shooting, player4.shooting, player5.shooting, 1)
                         print("aim training")
                         loopval = False
+                        player1.total = game.setPlayer(player1.shooting, player1.brains)
+                        player2.total = game.setPlayer(player2.shooting, player2.brains)
+                        player3.total = game.setPlayer(player3.shooting, player3.brains)
+                        player4.total = game.setPlayer(player4.shooting, player4.brains)
+                        player5.total = game.setPlayer(player5.shooting, player5.brains)
                     elif upVal == 2:
                         player1.brains, player2.brains, player3.brains, player4.brains, player5.brains = game.upgradePlayers(player1.brains, player2.brains, player3.brains, player4.brains, player5.brains, 2)
                         print("demo review")
                         loopval = False
+                        player1.total = game.setPlayer(player1.shooting, player1.brains)
+                        player2.total = game.setPlayer(player2.shooting, player2.brains)
+                        player3.total = game.setPlayer(player3.shooting, player3.brains)
+                        player4.total = game.setPlayer(player4.shooting, player4.brains)
+                        player5.total = game.setPlayer(player5.shooting, player5.brains)
                     elif upVal == 3:
                         player1.brains, player2.brains, player3.brains, player4.brains, player5.brains = game.upgradePlayers(player1.brains, player2.brains, player3.brains, player4.brains, player5.brains, 3)
                         player1.shooting, player2.shooting, player3.shooting, player4.shooting, player5.shooting = game.upgradePlayers(player1.shooting, player2.shooting, player3.shooting, player4.shooting, player5.shooting, 3)
                         print("play scrims")
                         loopval = False
+                        player1.total = game.setPlayer(player1.shooting, player1.brains)
+                        player2.total = game.setPlayer(player2.shooting, player2.brains)
+                        player3.total = game.setPlayer(player3.shooting, player3.brains)
+                        player4.total = game.setPlayer(player4.shooting, player4.brains)
+                        player5.total = game.setPlayer(player5.shooting, player5.brains)
                     elif upVal == 4:
                         player1.brains, player2.brains, player3.brains, player4.brains, player5.brains = game.upgradePlayers(player1.brains, player2.brains, player3.brains, player4.brains, player5.brains, 4)
                         player1.shooting, player2.shooting, player3.shooting, player4.shooting, player5.shooting = game.upgradePlayers(player1.shooting, player2.shooting, player3.shooting, player4.shooting, player5.shooting, 4)
                         print("anti-strat")
                         loopval = False
+                        player1.total = game.setPlayer(player1.shooting, player1.brains)
+                        player2.total = game.setPlayer(player2.shooting, player2.brains)
+                        player3.total = game.setPlayer(player3.shooting, player3.brains)
+                        player4.total = game.setPlayer(player4.shooting, player4.brains)
+                        player5.total = game.setPlayer(player5.shooting, player5.brains)
                     else:
                         upVal = 5
+                        
+                    teamOverall = game.yourTeamOVR(player1.total, player2.total, player3.total, player4.total, player5.total)  
 
-            val = 100
-        
+            val = 100   
             
         if(val == 3 and (weeksLeft > 0)):
             weeksLeft = weeksLeft - 1
@@ -169,11 +189,11 @@ def main():
             print("their team:", enemyOverall)   
             prestige, winCount = game.playGame(3, teamOverall, enemyOverall, prestige, winCount)
             
-            winCount = game.gameWin(winCount)                  
+            winCount = game.gameWin(winCount)    
+            player1.shooting, player2.shooting, player3.shooting, player4.shooting, player5.shooting = game.playerRegression(player1.shooting, player2.shooting, player3.shooting, player4.shooting, player5.shooting) 
+            player1.brains, player2.brains, player3.brains, player4.brains, player5.brains = game.playerRegression(player1.brains, player2.brains, player3.brains, player4.brains, player5.brains)             
             
-            val = 100    
-        
-        
+            val = 100           
         
         if(val == 5):
             break;   
@@ -182,7 +202,6 @@ def main():
             loss = input("You've been fired. Game Over.")
             os.system('cls')
             break
-        
         
         else:            
             val = int(input("|||||Main Menu|||||\n(1)View Team\n(2)bootcamp\n(3)Sign new player\n(4)play tournament\n(5)quit\n||||||||||||||||||||\n"))
