@@ -34,7 +34,6 @@ def playTournament(month, teamoverall, prestige):
                 
             if wRecord == 5:
                 print("You win the tournament!")
-                prestige = prestige + 3
             elif wRecord == 4 and lRecord == 1:
                 print("You placed second")
             elif wRecord == 3 and lRecord == 2:
@@ -45,7 +44,6 @@ def playTournament(month, teamoverall, prestige):
                 print("You won a game. Good job.")
             elif lRecord == 5:
                 print("You didn't win a game. Your fans are dissapointed.")
-                prestige = prestige - 5
                 
                 
         return month+1, prestige
@@ -86,7 +84,6 @@ def playTournament(month, teamoverall, prestige):
                 #you're out    
                 if lRecord == 2:
                     print("You didn't win a game.")
-                    prestige = prestige - 3
                     return month+1, prestige
                 #you win first losers match
                 elif wRecord == 1:
@@ -128,7 +125,6 @@ def playTournament(month, teamoverall, prestige):
                         #you win in the finals    
                         elif wRecord == 3:
                             print("You won from the losers bracket!")
-                            prestige = prestige + 5
                             return month+1, prestige
             elif (wRecord == 1) and (lRecord == 0):
                 enemy = enemyTeam()
@@ -160,7 +156,6 @@ def playTournament(month, teamoverall, prestige):
                     #upper bracket finals win
                     if wRecord == 3:
                         print("You win!")
-                        prestige = prestige + 5
                         return month+1, prestige
                     #upper bracket finals loss
                     elif lRecord == 1:
@@ -201,7 +196,6 @@ def playTournament(month, teamoverall, prestige):
                             
                         if wRecord == 3:
                             print("You win from the losers bracket!")
-                            prestige = prestige + 5
                             return month+1, prestige
                         
                         elif lRecord == 2:
@@ -227,7 +221,6 @@ def playTournament(month, teamoverall, prestige):
                 
             if wRecord == 5:
                 print("You win the tournament!")
-                prestige = prestige + 3
             elif wRecord == 4 and lRecord == 1:
                 print("You placed second")
             elif wRecord == 3 and lRecord == 2:
@@ -238,13 +231,96 @@ def playTournament(month, teamoverall, prestige):
                 print("You won a game. Good job.")
             elif lRecord == 5:
                 print("You didn't win a game. Your fans are dissapointed.")
-                prestige = prestige - 5
                 
         return month+1, prestige
                         
     elif month == 4:
-        print("in construction")
-        return 1, prestige                               
+        wRecord = 0
+        lRecord = 0
+        inPlayoffs = False
+        print("Welcome to ESL Pro League\n")
+        
+        for i in range(0,3):
+            enemy = enemyTeam()
+            if teamoverall < enemy:
+                lRecord = lRecord + 1
+                print("Your team", teamoverall,"vs", "enemy team", enemy)
+                print("You lose:", wRecord,"-",lRecord)
+                prestige = prestige - 1
+            elif enemy < teamoverall:
+                wRecord = wRecord + 1
+                print("Your team", teamoverall,"vs", "enemy team", enemy)
+                print("You Win:", wRecord,"-",lRecord)
+                prestige = prestige + 1
+                
+        if(wRecord >= 2):
+            print("\nYou've made the playoffs!\n")
+            inPlayoffs = True   
+            
+        else:
+            print("\nYour team didn't make the playoffs.")
+            return month+1, prestige
+        
+        if(inPlayoffs):
+            wRecord = 0
+            lRecord = 0
+            for i in range(0,3):
+                enemy = enemyTeam()
+                if teamoverall < enemy:
+                    lRecord = lRecord + 1
+                    print("Your team", teamoverall,"vs", "enemy team", enemy)
+                    print("You lose:", wRecord,"-",lRecord)
+                    prestige = prestige - 1
+                elif enemy < teamoverall:
+                    wRecord = wRecord + 1
+                    print("Your team", teamoverall,"vs", "enemy team", enemy)
+                    print("You Win:", wRecord,"-",lRecord)
+                    prestige = prestige + 1
+                    
+                if(lRecord > 0):
+                    print("\nYou lost in round\n", wRecord+1)
+                    return month+1, prestige
+                
+            print("\nYou've won ESL Pro League!\n")
+            prestige = prestige + 2
+                    
+        return month+1, prestige                               
+
+    elif month == 5:
+        wRecord = 0
+        lRecord = 0
+        print("Welcome to BetBoom cup!\n")
+        for i in range(0,5):
+            enemy = enemyTeam()
+            if teamoverall < enemy:
+                lRecord = lRecord + 1
+                print("Your team", teamoverall,"vs", "enemy team", enemy)
+                print("You lose:", wRecord,"-",lRecord)
+                prestige = prestige - 1
+            elif enemy < teamoverall:
+                wRecord = wRecord + 1
+                print("Your team", teamoverall,"vs", "enemy team", enemy)
+                print("You Win:", wRecord,"-",lRecord)
+                prestige = prestige + 1
+                
+            if wRecord == 5:
+                print("You win the tournament!")
+            elif wRecord == 4 and lRecord == 1:
+                print("You placed second")
+            elif wRecord == 3 and lRecord == 2:
+                print("You tried your best, and it wasn't bad.")
+            elif wRecord == 2 and lRecord == 3:
+                print("Your team didn't do so well.")
+            elif wRecord == 1 and lRecord == 4:
+                print("You won a game. Good job.")
+            elif lRecord == 5:
+                print("You didn't win a game. Your fans are dissapointed.")
+                
+        return month+1, prestige
+        
+    elif month == 6:
+        print("In construction... Major coming soon???")
+        return 1, prestige
 
 def createPlayerNames():
     nameLST = []
