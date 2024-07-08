@@ -1,0 +1,43 @@
+*Create React/TS application 
+
+*Create Python Script to generate list of 270 Players tied to 51 teams (FA) 
+
+*Make script parse data into JSON file
+
+*Create front page of React/TS application which provides user menu items: Play, New Save/Load Save, Settings, Quit(?)
+
+*Create Play Page which brings user to Main Play page, linking 5 user players on specially sorted cards. 
+
+*Create Player cards which parse given data to assign players default role (best role from algorithm) and sort them into roles, giving preference
+to highest rated player in each role to give highest overall rating
+
+*Create TS script to parse all of the given teams and assign same game logic to create each team and sort them
+
+*Provide each Team number of default ranking points, leaving bottom 10 teams (including player team) at 0 points (unrated)
+
+*Create button on Play page which leads player to ranking list, displaying the top 30 teams based on ranking points
+
+*Provide display on homepage which lists the player teams rank
+
+*Create script to handle logic to update JSON file for all ai teams for every week simmed, providing a 10-20% chance of players gaining no attributes
+but primarily upgrading them for every week the user passes by. 
+
+*Create display icon which updates for each week (0-5) left before the player has to play a tournament
+
+*Create a page which stores a list of 20 free agents given random stats that the player has the ability to pick up (1 per week) to replace one of their
+players. Upon selection, the AI will then have a 2% chance of picking up one of the other players in FA and swapping one of their own players.
+
+*Will have to be done in another script to handle game logic ^^^
+
+*Create a script which after 2-3 seasons of not being selected by a team, player will reset and be replaced by another randomly generated player
+
+*Create a script to handle logic for player team being trained, will require button on Play Page to train every week based on User's desired
+training focus. Giving the player a certain percentage chance of improvement every week. 
+
+*Create a script to handle the tournament logic after 5 weeks where they'll be able to play a tournament from a random list of possible tournaments, 
+given a random group of teams from the list of AI teams given.  
+
+*Create gameplay loop; add more player names so players replaced in game won't share names (ideally, remove name from existence to ensure no overlap
+
+*Create load which stores the JSON file, with the given name of the user for the save. Provide a file/script which iterates over the drive file from
+the HLTV website and stores the names of the top 50 teams, as well as the player names and such. May have to manually create stats for the players. 
